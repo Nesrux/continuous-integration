@@ -19,14 +19,21 @@ jobs:
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
+     
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: login to dockerHub
+        uses: docker/login-action@v1
+        with: 
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+           
       -   name: Build and push
           id: docker_build
           uses: docker/build-push-action@v5
           with:
         #    context: .
-            push: false
+            push: true
             tags: nesrux/ci:latest
 
