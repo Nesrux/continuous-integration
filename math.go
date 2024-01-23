@@ -12,10 +12,11 @@ func Somar(a, b int) int {
 	return a + b
 }
 
+/*
 func Subtracao(a, b int) int {
 	return a - b
 }
 
 func Multi(a, b int) int {
 	return a * b
-}
+}**/
